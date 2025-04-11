@@ -10,10 +10,10 @@ import net.minecraftforge.fml.event.config.ModConfigEvent;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 
 public class ConfigModuleForge {
-    public static void init() {
-        ModLoadingContext.get().registerConfig(ModConfig.Type.COMMON, BOMConfigForge.SPEC, "betteroceanmonuments-forge-1_21.toml");
+    public static void init(FMLJavaModLoadingContext fmlJavaModLoadingContext) {
+        fmlJavaModLoadingContext.registerConfig(ModConfig.Type.COMMON, BOMConfigForge.SPEC, "betteroceanmonuments-forge-1_21.toml");
         MinecraftForge.EVENT_BUS.addListener(ConfigModuleForge::onWorldLoad);
-        FMLJavaModLoadingContext.get().getModEventBus().addListener(ConfigModuleForge::onConfigChange);
+        fmlJavaModLoadingContext.getModEventBus().addListener(ConfigModuleForge::onConfigChange);
     }
 
     private static void onWorldLoad(LevelEvent.Load event) {

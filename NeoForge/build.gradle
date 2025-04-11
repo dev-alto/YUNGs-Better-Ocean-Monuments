@@ -43,6 +43,16 @@ runs {
 
 sourceSets.main.resources { srcDir 'src/generated/resources' }
 
+// Neoforge pulls ASM 9.5. Many other dependencies pull ASM 9.7. Dirty fix to prevent loading ASM twice
+configurations.configureEach {
+    resolutionStrategy {
+        force 'org.ow2.asm:asm:9.7'
+        force 'org.ow2.asm:asm-tree:9.7'
+        force 'org.ow2.asm:asm-util:9.7'
+        force 'org.ow2.asm:asm-analysis:9.7'
+    }
+}
+
 dependencies {
     implementation "net.neoforged:neoforge:${neoforge_version}"
     implementation "com.yungnickyoung.minecraft.yungsapi:YungsApi:${mc_version}-NeoForge-${yungsapi_version}"
