@@ -4,10 +4,11 @@ import net.minecraft.world.entity.projectile.Projectile;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.gen.Accessor;
 
-import java.util.UUID;
+import net.minecraft.world.entity.EntityReference;
+//import java.util.UUID;
 
 @Mixin(Projectile.class)
 public interface ProjectileAccessor {
     @Accessor
-    UUID getOwnerUUID();
+    EntityReference<?> getOwner();
 }

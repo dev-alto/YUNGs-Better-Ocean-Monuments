@@ -47,8 +47,8 @@ public abstract class PersistentTridentMixin extends Entity {
     @Unique
     private String getOwner(Object object) {
         if (object instanceof Projectile projectile) {
-            if (((ProjectileAccessor)projectile).getOwnerUUID() != null) {
-                return ((ProjectileAccessor)projectile).getOwnerUUID().toString();
+            if (((ProjectileAccessor)projectile).getOwner() != null) {
+                return ((ProjectileAccessor)projectile).getOwner().toString();
             }
         }
         return "";
